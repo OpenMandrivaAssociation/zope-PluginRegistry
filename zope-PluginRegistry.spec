@@ -1,30 +1,26 @@
-%define product		PluginRegistry
-%define realVersion     1.1.1
-%define release         1
-
-%define version %(echo %{realVersion} | sed -e 's/-/./g')
+%define Product PluginRegistry
+%define product pluginregistry
+%define name    zope-%{Product}
+%define version 1.1.2
+%define release %mkrel 1
 
 %define zope_minver	2.7
 %define plone_minver	2.0
-
 %define zope_home	%{_prefix}/lib/zope
 %define software_home	%{zope_home}/lib/python
 
-Summary:	PluginRegistry is a tool for Product developers to enable a pluggable architecture
-Name:		zope-%{product}
+Name:		%{name}
 Version:	%{version}
-Release:	%mkrel %{release}
+Release:	%{release}
+Summary:	PluginRegistry is a tool for Product developers to enable a pluggable architecture
 License:	GPL
 Group:		System/Servers
-Source:		http://www.zope.org/Products/PluginRegistry/PluginRegistry-%{version}/PluginRegistry-%{version}.tar.bz2
-URL:		http://www.zope.org/Products/PluginRegistry
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
-BuildArch:	noarch
+URL:        http://www.zope.org/Products/%{Product}
+Source:     http://zope.org/Products/%{Product}/%{Product}-%{version}/%{Product}-%{version}.tar.gz
 Requires:	zope >= %{zope_minver}
 Requires:	plone >= %{plone_minver}
-
-Provides:	plone-Faq == %{version}
-Obsoletes:	zope-Faq
+BuildArch:  noarch
+BuildRoot:  %{_tmppath}/%{name}-%{version}
 
 
 %description
@@ -40,8 +36,7 @@ PluginRegistry is a tool for Product developers to enable a pluggable architectu
 %install
 %{__rm} -rf %{buildroot}
 %{__mkdir_p} %{buildroot}/%{software_home}/Products
-%{__cp} -a %{product}-%{version} %{buildroot}%{software_home}/Products/%{product}
-
+%{__cp} -a %{Product}-%{version} %{buildroot}%{software_home}/Products/%{Product}
 
 %clean
 %{__rm} -rf %{buildroot}
@@ -57,6 +52,5 @@ if [ -f "%{_prefix}/bin/zopectl" ] && [ "`%{_prefix}/bin/zopectl status`" != "da
 fi
 
 %files
-%defattr(0644, root, root, 0755)
+%defattr(-,root,root)
 %{software_home}/Products/*
-
