@@ -24,7 +24,8 @@ BuildRoot:  %{_tmppath}/%{name}-%{version}
 
 
 %description
-PluginRegistry is a tool for Product developers to enable a pluggable architecture.
+PluginRegistry is a tool for Product developers to enable a pluggable
+architecture.
 
 %prep
 %setup -c
