@@ -2,7 +2,7 @@
 %define product pluginregistry
 %define name    zope-%{Product}
 %define version 1.1.2
-%define release %mkrel 2
+%define release %mkrel 3
 
 %define zope_minver	2.7
 %define plone_minver	2.0
