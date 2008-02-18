@@ -12,7 +12,7 @@
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
-Summary:	PluginRegistry is a tool for Product developers to enable a pluggable architecture
+Summary:	Tool for Product developers to enable a pluggable architecture
 License:	GPL
 Group:		System/Servers
 URL:        http://www.zope.org/Products/%{Product}
